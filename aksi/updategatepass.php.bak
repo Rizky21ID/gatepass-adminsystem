@@ -1,0 +1,28 @@
+
+<?php ob_start();
+ 
+include '../config/koneksi.php';	
+
+	$id_gatepass			= $_POST['id_gatepass'];
+	$kategori    		    = $_POST['kategori'];
+	$tgl_expired			= $_POST['tgl_expired'];
+	$tgl_update				= $_POST['tgl_update'];
+	$kendaraan				= $_POST['kendaraan'];
+	$lokasi					= $_POST['lokasi'];
+	$petugas				= $_POST['petugas'];
+
+mysql_query("UPDATE gatepass SET kategori_id='$kategori', tgl_expired='$tgl_expired', tgl_update='$tgl_update', kendaraan_id='$kendaraan', lokasi_id='$lokasi', petugas_id='$petugas'    WHERE id_gatepass='$id_gatepass'");
+
+header("location:../media.php?module=gatepass");
+?>
+<html>
+<!-- Just for test 
+<?php //echo "$id_gatepass"; ?><br>
+<?php //echo "$kategori"; ?><br>
+<?php //echo "$tgl_expired"; ?><br>
+<?php //echo "$tgl_update"; ?><br>
+<?php //echo "$kendaraan"; ?><br>
+<?php //echo "$lokasi";?><br>
+<?php //echo "$petugas"; ?><br>
+-->
+</html>
